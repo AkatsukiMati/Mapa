@@ -11,7 +11,7 @@ app.use((req, res, next) => {
 app.get('/api/mapa', (req, res) => {
   res.json({
     marcadores: [
-      { lat: -33.426948, lng: -70.648002, hospital: 'Clinica Davila' },
+      { lat: -33.42690904033368, lng: -70.64815799700825, hospital: 'Clinica Davila' },
     ],
   });
 });
@@ -19,5 +19,4 @@ app.get('/api/mapa', (req, res) => {
 app.listen(PORT, () => {
   console.log(`Servidor corriendo en http://localhost:${PORT}`);
 });
-
 
