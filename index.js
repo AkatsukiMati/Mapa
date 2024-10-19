@@ -2,27 +2,24 @@ const express = require('express');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// CORS para permitir acceso desde Ionic
+// Habilitar CORS para permitir peticiones desde Ionic
 app.use((req, res, next) => {
   res.header('Access-Control-Allow-Origin', '*');
-  res.header('Access-Control-Allow-Methods', 'GET,POST,PUT,DELETE');
-  res.header('Access-Control-Allow-Headers', 'Content-Type');
+  res.header('Access-Control-Allow-Methods', 'GET');
   next();
 });
 
-// Ruta de ejemplo que devuelve coordenadas
-app.get('/api/mapas', (req, res) => {
+// Ruta que devuelve marcadores para el mapa
+app.get('/api/mapa', (req, res) => {
   const data = {
-    coordenadas: [
+    marcadores: [
       { lat: 40.73061, lng: -73.935242, ciudad: 'Nueva York' },
-      { lat: 48.8566, lng: 2.3522, ciudad: 'París' },
-    ],
+      { lat: 48.8566, lng: 2.3522, ciudad: 'París' }
+    ]
   };
   res.json(data);
 });
 
-// Iniciar el servidor
 app.listen(PORT, () => {
-  console.log(`Servidor corriendo en http://localhost:${PORT}`);
+  console.log(`API de mapas corriendo en http://localhost:${PORT}`);
 });
-
